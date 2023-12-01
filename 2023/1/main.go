@@ -1026,28 +1026,23 @@ func main() {
 	//Over each line, find first and last integer and add to accumulator
 	var sum int
 	for _, line := range lines {
-		var first, last int
-		// strconv.Atoi() reads strings, so split to a slice instead of 
+		// strconv.Atoi() reads strings, so split to a slice instead of
 		// iterating over runes
 		line := strings.Split(line, "")
-		fmt.Println(line)
 		for _, char := range line {
 			i, err := strconv.Atoi(char)
 			if err == nil {
-				fmt.Println(i)
-				first = i
+				sum += i * 10
 				break
 			}
 		}
 		for char := range reverse(line) {
 			i, err := strconv.Atoi(char)
 			if err == nil {
-				fmt.Println(i)
-				last = i
+				sum += i
 				break
 			}
 		}
-		sum += (first * 10) + last
 		fmt.Println(sum)
 	}
 	return
