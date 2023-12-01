@@ -1021,14 +1021,14 @@ func reverse(s []string) chan string {
 }
 
 func main() {
-	// strconv.Atoi() reads strings, so split to a slice instead of 
-	// iterating over runes
 	lines := strings.Split(input, "\n")
 
 	//Over each line, find first and last integer and add to accumulator
 	var sum int
 	for _, line := range lines {
 		var first, last int
+		// strconv.Atoi() reads strings, so split to a slice instead of 
+		// iterating over runes
 		line := strings.Split(line, "")
 		fmt.Println(line)
 		for _, char := range line {
